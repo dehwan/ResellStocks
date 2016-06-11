@@ -120,7 +120,7 @@
 				<a href="#" class="thumbnail"><img src="..." alt="..." style="height: 300px;"></a>
 				<div style="text-align: center;">4444</div>
 			</div>
-		</div>
+		</div>dd
 		<div class="row">
 			<div class="col-xs-6 col-md-3">
 				<a href="/sample/itemView.do" class="thumbnail"><img src="../resources/images/errer_img.gif" alt="" style="height: 300px;"></a>
