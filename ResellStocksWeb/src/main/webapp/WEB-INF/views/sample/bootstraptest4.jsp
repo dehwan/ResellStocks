@@ -1,8 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,18 +11,15 @@
 
     <title>Resell Stocks</title>
 
-    <!-- Bootstrap core CSS -->
-	<link href="../resources/css/bootstrap.min.css" rel="stylesheet">
-	<!-- Bootstrap theme -->
-	<link href="/webjars/bootstrap/3.3.4/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Bootstrap Core CSS -->
+    <link href="../resources/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../resources/css/clean-blog.min.css" rel="stylesheet">
+    <link href="../resources/css/landing-page.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="../resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,33 +33,29 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-        <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
+            <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand topnav" href="#">Resell Stocks</a>
             </div>
-
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="#about">About</a>
                     </li>
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="#services">Services</a>
                     </li>
                     <li>
-                        <a href="post.html">Sample Post</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -76,54 +64,62 @@
         <!-- /.container -->
     </nav>
 
-    <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('../resources/img/home-bg.jpg')">
+
+    <!-- Header -->
+    <a name="about"></a>
+    <div class="intro-header">
         <div class="container">
+
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>신발을 사자</h1>
-                        <hr class="small">
-                        <span class="subheading">호호호</span>
-                        <br/><br/><br/><br/>
-                        <div class="input-group">
-					     	<input class="form-control input-lg " id="inputlg" type="text"  style="width:98%; display:inline; vertical-align: middle;" placeholder="Search for brand, color, etc.">
-					     	<span class="input-group-btn">
-						       <button class="btn btn-default" type="button">Search!</button>
-				       		</span>
-					   </div>
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>신발사기</h1>
+                        <h3>호호호</h3>
+                        <hr class="intro-divider">
+                        <br/><br/><br/>
+                        <div class="col-md-2"></div>
+						<div class="col-md-8">
+							<div class="input-group">
+								<input type="text" class="form-control input-lg" placeholder="Search for brand, color, etc.">
+								<span class="input-group-btn">
+									<button class="btn btn-default btn-lg" type="button">
+									  <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Go!
+									</button>
+								</span>
+							</div>
+						</div>
+						<div class="col-md-2"></div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </header>
+        <!-- /.container -->
 
-    <!-- Main Content -->
-    <div class="container">
-    	<div class="row">
-			
-		</div>
+    </div>
+    <!-- /.intro-header -->
 
-		<br/>
-		<br/>
-		
-		<div class="row">
+    <!-- Page Content -->
+
+	<a  name="services"></a>
+        <div class="container">
+        <br/><br/><br/><br/>
+			<div class="row">
 			<div class="col-xs-6 col-md-3">
 				<a href="/sample/itemView.do" class="img-rounded" ><img src="../resources/image/official/106-300x214-Air-Jordan-4-Retro-Green-Glow.jpg" alt="" style="width: 250px; height: 200px;"></a>
-				<h4 class="post-subtitle" style="text-align: center;">내가 좋아하는 신발</h4>
+				<h4 class="post-subtitle" style="text-align: center;">내가 좋아하는 신발</h4>
 			</div>
 			<div class="col-xs-6 col-md-3">
 				<a href="#" class="img-rounded"><img src="../resources/image/official/1122-300x214-Air-Jordan-6-Retro-Sport-Blue-2014.jpg" alt=".." style="width: 250px; height: 200px;"></a>
-				<h4 class="post-subtitle" style="text-align: center;">오빠가 좋아하는 신발</h4>
+				<h4 class="post-subtitle" style="text-align: center;">오빠가 좋아하는 신발</h4>
 			</div>
 			<div class="col-xs-6 col-md-3">
 				<a href="#" class="img-rounded"><img src="../resources/image/official/1179-300x214-Air-Jordan-1-Retro-Chicago-2015.jpg" alt="..." style="width: 250px; height: 200px;"></a>
-				<h4 class="post-subtitle" style="text-align: center;">오빠가 좋아하는 신발2</h4>
+				<h4 class="post-subtitle" style="text-align: center;">오빠가 좋아하는 신발 2</h4>
 			</div>
 			<div class="col-xs-6 col-md-3">
 				<a href="#" class="img-rounded"><img src="../resources/image/official/1198-300x214-Air-Jordan-4-Retro-Oreo-Tech-Grey-2015.jpg" alt="..." style="width: 250px; height: 200px;"></a>
-				<h4 class="post-subtitle" style="text-align: center;">내가 좋아하는 신발2</h4>
+				<h4 class="post-subtitle" style="text-align: center;">내가 좋아하는 신발 2</h4>
 			</div>
 		</div>
 		<br/>
@@ -168,75 +164,70 @@
 		<div class="row">
 			<div class="col-xs-6 col-md-3">
 				<a href="/sample/itemView.do" class="img-rounded"><img src="../resources/image/official/12261531254308892381-300x214-Nike-Air-Max-98-Supreme-Black.jpg" alt="" style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">ㅋ</h5>
+				<h5 class="post-subtitle" style="text-align: center;">ã</h5>
 			</div>
 			<div class="col-xs-6 col-md-3">
 				<a href="#" class="img-rounded"><img src="../resources/image/official/167-300x214-Air-Jordan-6-Retro-Carmine-2014.jpg" alt=".." style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">ㅋ</h5>
+				<h5 class="post-subtitle" style="text-align: center;">ã</h5>
 			</div>
 			<div class="col-xs-6 col-md-3">
 				<a href="#" class="img-rounded"><img src="../resources/image/official/215422231-300x214-Air-Jordan-6-Retro-Maroon-2015.jpg" alt="..." style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">ㅋ</h5>
+				<h5 class="post-subtitle" style="text-align: center;">ã</h5>
 			</div>
 			<div class="col-xs-6 col-md-3">
 				<a href="#" class="img-rounded"><img src="../resources/image/official/28222222-300x214-Air-Jordan-5-Retro-Supreme-Desert-Camo.jpg" alt="..." style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">ㅋ</h5>
+				<h5 class="post-subtitle" style="text-align: center;">ã</h5>
 			</div>
 		</div>
 		<br/>
 		<div class="row">
 			<div class="col-xs-6 col-md-3">
 				<a href="/sample/itemView.do" class="img-rounded"><img src="../resources/image/official/291-300x214-Air-Jordan-11-Retro-Gamma-Blue.jpg" alt="" style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">ㅋ</h5>
+				<h5 class="post-subtitle" style="text-align: center;">ã</h5>
 			</div>
 			<div class="col-xs-6 col-md-3">
 				<a href="#" class="img-rounded"><img src="../resources/image/official/304-300x214-Air-Jordan-11-Retro-Playoffs-Bred-2012.jpg" alt=".." style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">ㅋ</h5>
+				<h5 class="post-subtitle" style="text-align: center;">ã</h5>
 			</div>
 			<div class="col-xs-6 col-md-3">
 				<a href="#" class="img-rounded"><img src="../resources/image/official/aj11-low-concord1.jpg" alt="..." style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">ㅋ</h5>
+				<h5 class="post-subtitle" style="text-align: center;">ã</h5>
 			</div>
 			<div class="col-xs-6 col-md-3">
 			
 			</div>
 		</div>
-    </div>
 
-    <hr>
+        </div>
+        <!-- /.container -->
+
+
+
+
 
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
                         <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
+                            <a href="#">Home</a>
                         </li>
+                        <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
+                            <a href="#about">About</a>
                         </li>
+                        <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
+                            <a href="#services">Services</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#contact">Contact</a>
                         </li>
                     </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2014</p>
+                    <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>
                 </div>
             </div>
         </div>
@@ -244,12 +235,9 @@
 
     <!-- jQuery -->
     <script src="../resources/js/jquery.js"></script>
-    
+
     <!-- Bootstrap Core JavaScript -->
     <script src="../resources/js/bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="../resources/js/clean-blog.min.js"></script>
 
 </body>
 

@@ -39,4 +39,10 @@ public class SampleController {
         ModelAndView mv = new ModelAndView("/sample/bootstraptest3");
         return mv;
     }
+    
+    @RequestMapping(value="/sample/item1.do")
+    public ModelAndView item1(Map<String,Object> commandMap) throws Exception{
+        ModelAndView mv = new ModelAndView("/sample/bootstraptest4");
+        return mv;
+    }
 }
