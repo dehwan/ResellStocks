@@ -1598,9 +1598,9 @@ pre code {
     width: 970px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1500px) {
   .container {
-    width: 1170px;
+    width: 1280;
   }
 }
 .container-fluid {
@@ -1641,7 +1641,7 @@ pre code {
   width: 58.33333333%;
 }
 .col-xs-6 {
-  width: 50%;
+  width: 100%;
 }
 .col-xs-5 {
   width: 41.66666667%;

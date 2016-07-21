@@ -18,8 +18,28 @@ public class SampleServiceImpl implements SampleService {
     private SampleDAO sampleDAO;
 	
 	@Override
-	public List<Map<String, Object>> selectBoardList(Map<String, Object> map) throws Exception {
-		return sampleDAO.selectBoardList(map);
+	public List<Map<String, Object>> mainStocksList(Map<String, Object> map) throws Exception {
+		return sampleDAO.mainStocksList(map);
+	}
+
+	@Override
+	public List<Map<String, Object>> detailChartSum(Map<String, Object> map) throws Exception {
+		return sampleDAO.detailChartSum(map);
+	}
+
+	@Override
+	public Map<String, Object> detailOfficialInfo(Map<String, Object> map) throws Exception {
+		return sampleDAO.detailOfficialInfo(map);
+	}
+
+	@Override
+	public List<Map<String, Object>> detailStocksList(Map<String, Object> map) throws Exception {
+		return sampleDAO.detailStocksList(map);
+	}
+
+	@Override
+	public List<Map<String, Object>> crushPic(Map<String, Object> map) throws Exception {
+		return sampleDAO.crushPic(map);
 	}
 
 }

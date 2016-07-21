@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,10 +19,13 @@
 
     <!-- Custom CSS -->
     <link href="../resources/css/landing-page.css" rel="stylesheet">
+    
+<!--     <link rel="stylesheet" href="../resources/css/creative.css" type="text/css"> -->
 
     <!-- Custom Fonts -->
     <link href="../resources/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<!-- 	<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>     -->
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,8 +34,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-</head>
 
+</head>
 <body>
 
     <!-- Navigation -->
@@ -37,25 +43,13 @@
         <div class="container topnav">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand topnav" href="#">Resell Stocks</a>
+                <a class="navbar-brand topnav" href="/stocks.do">Resell Stocks</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <a href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -66,145 +60,113 @@
 
 
     <!-- Header -->
-    <a name="about"></a>
     <div class="intro-header">
         <div class="container">
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                        <h1>신발사기</h1>
-                        <h3>호호호</h3>
-                        <hr class="intro-divider">
-                        <br/><br/><br/>
-                        <div class="col-md-2"></div>
-						<div class="col-md-8">
-							<div class="input-group">
-								<input type="text" class="form-control input-lg" placeholder="Search for brand, color, etc.">
-								<span class="input-group-btn">
-									<button class="btn btn-default btn-lg" type="button">
-									  <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Go!
-									</button>
-								</span>
+			<form name="search" method="POST" action="stocks.do">
+	            <div class="row">
+	                <div class="col-lg-12">
+	                    <div class="intro-message">
+	                        <h1>Resell Stocks</h1>
+	                        <h3>Prototype</h3>
+	                        <hr class="intro-divider">
+	                        <br/><br/><br/>
+	                        <div class="col-md-2"></div>
+							<div class="col-md-8">
+								<div class="input-group">
+									<input type="text" class="form-control input-lg" placeholder="Search for brand, color, etc." name="search" value="${search.search }"/>
+									<span class="input-group-btn">
+										<button class="btn btn-default btn-lg" type="button" onclick="submit();">
+										  <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Get it
+										</button>
+									</span>
+								</div>
 							</div>
-						</div>
-						<div class="col-md-2"></div>
-                    </div>
-                </div>
-            </div>
+							<div class="col-md-2"></div>
+	                    </div>
+	                </div>
+	            </div>
+			</form>
 
         </div>
         <!-- /.container -->
 
     </div>
     <!-- /.intro-header -->
+    
+<!--     <div class="content-section-a"> -->
 
+<!--         <div class="container"> -->
+<!--             <div class="row"> -->
+<!--                 <div class="col-lg-5 col-sm-6"> -->
+<!--                     <hr class="section-heading-spacer"> -->
+<!--                     <div class="clearfix"></div> -->
+<!--                     <h2 class="section-heading">Current Stocks:&nbsp;250</h2> -->
+<!--                     <p class="lead">go for <a target="_blank" href="http://join.deathtothestockphoto.com/">stocks !!</a></p> -->
+<!--                 </div> -->
+<!--             </div> -->
+
+<!--         </div> -->
+<!--         /.container -->
+
+<!--     </div> -->
+<br>
+<br>
     <!-- Page Content -->
 
-	<a  name="services"></a>
+	<div class="container">
+		<p class="lead" style="padding-bottom:7px; border-bottom:1px solid #bdbdbd;" ><img src="../resources/images/price-tag-icon.svg" style="width:2.7%;" align="top">&nbsp;STOCKS</p> 
+		<div class="row">
+			<c:choose>
+				<c:when test="${fn:length(stocks) > 0}">
+					<c:forEach items="${stocks }" var="stock">
+						<a href="/detail.do?official=${stock.OC_ID }">
+							<div class="col-xs-6 col-md-3">
+							<img src="${stock.OC_PIC }" class="img-responsive" alt="">
+							<div style="min-height: 38px;">
+								<h4 style="text-align: left; letter-spacing:1.2px">${stock.OC_NAME }</h4>
+							</div>
+							<p>Price<img src="../resources/images/up.png" style="width:7%">${stock.MAX_PRICE }<img src="../resources/images/down.png" style="width:7%">${stock.MIN_PRICE }</p>
+							</div>
+						</a>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<div class="col-xs-6 col-md-3">
+						<img src="../resources/images/default-sneaker.jpg" class="img-responsive" alt="">
+						<p>검색한 매물이 없습니다</p>
+					</div>
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<br />
+	</div>
+	<br>
+	<br>
+	<br>
+	<!-- /.container -->
+
+	<div class="banner">
         <div class="container">
-        <br/><br/><br/><br/>
-			<div class="row">
-			<div class="col-xs-6 col-md-3">
-				<a href="/sample/itemView.do" class="img-rounded" ><img src="../resources/image/official/106-300x214-Air-Jordan-4-Retro-Green-Glow.jpg" alt="" style="width: 250px; height: 200px;"></a>
-				<h4 class="post-subtitle" style="text-align: center;">내가 좋아하는 신발</h4>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="img-rounded"><img src="../resources/image/official/1122-300x214-Air-Jordan-6-Retro-Sport-Blue-2014.jpg" alt=".." style="width: 250px; height: 200px;"></a>
-				<h4 class="post-subtitle" style="text-align: center;">오빠가 좋아하는 신발</h4>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="img-rounded"><img src="../resources/image/official/1179-300x214-Air-Jordan-1-Retro-Chicago-2015.jpg" alt="..." style="width: 250px; height: 200px;"></a>
-				<h4 class="post-subtitle" style="text-align: center;">오빠가 좋아하는 신발 2</h4>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="img-rounded"><img src="../resources/image/official/1198-300x214-Air-Jordan-4-Retro-Oreo-Tech-Grey-2015.jpg" alt="..." style="width: 250px; height: 200px;"></a>
-				<h4 class="post-subtitle" style="text-align: center;">내가 좋아하는 신발 2</h4>
-			</div>
-		</div>
-		<br/>
-		<div class="row">
-			<div class="col-xs-6 col-md-3">
-				<a href="/sample/itemView.do" class="img-rounded"><img src="../resources/image/official/1203-300x214-Air-Jordan-6-Retro-Infrared-Black-2014.jpg" alt="" style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">Air-Jordan-6-Retro-Infrared</h5>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="img-rounded"><img src="../resources/image/official/121-300x214-Air-Jordan-4-Retro-Toro-Bravo.jpg" alt=".." style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">Air-Jordan-4-Retro-Toro-Bravo</h5>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="img-rounded"><img src="../resources/image/official/12159475982980304512-300x214-Air-Jordan-11-Retro-72-10.jpg" alt="..." style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">Air-Jordan-11-Retro</h5>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="img-rounded"><img src="../resources/image/official/12200070047899859166-300x214-Air-Jordan-4-Retro-White-Cement-2016.jpg" alt="..." style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">Air-Jordan-4-Retro-White-Cement</h5>
-			</div>
-		</div>
-		<br/>
-		<div class="row">
-			<div class="col-xs-6 col-md-3">
-				<a href="/sample/itemView.do" class="img-rounded"><img src="../resources/image/official/1222-300x214-Air-Jordan-11-Retro-Legend-Blue.jpg" alt="" style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">Air Jordan 11 <br/> Retro Legend Blue</h5>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="img-rounded"><img src="../resources/image/official/1223-300x214-Air-Jordan-11-Retro-Low-Bred.jpg" alt=".." style="width: 250px; height: 200px;"></a>
-				<h4 class="post-subtitle" style="text-align: center;">Air Jordan 11 <br/> Retro Low Bred</h4>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="img-rounded"><img src="../resources/image/official/1225-300x214-Air-Jordan-11-Retro-Low-Georgetown.jpg" alt="..." style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle">Air Jordan 11 <br/> Retro Low Georgetown</h5>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="img-rounded"><img src="../resources/image/official/12261529158351386506-300x214-Nike-Air-Max-98-Supreme-Snakeskin.jpg" alt="..." style="width: 250px; height: 200px;"></a>
-				<h4 class="post-subtitle">Nike Air Max 98 <br/> Supreme Snakeskin</h4>
-			</div>
-		</div>
-		<br/>
-		<div class="row">
-			<div class="col-xs-6 col-md-3">
-				<a href="/sample/itemView.do" class="img-rounded"><img src="../resources/image/official/12261531254308892381-300x214-Nike-Air-Max-98-Supreme-Black.jpg" alt="" style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">ã</h5>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="img-rounded"><img src="../resources/image/official/167-300x214-Air-Jordan-6-Retro-Carmine-2014.jpg" alt=".." style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">ã</h5>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="img-rounded"><img src="../resources/image/official/215422231-300x214-Air-Jordan-6-Retro-Maroon-2015.jpg" alt="..." style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">ã</h5>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="img-rounded"><img src="../resources/image/official/28222222-300x214-Air-Jordan-5-Retro-Supreme-Desert-Camo.jpg" alt="..." style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">ã</h5>
-			</div>
-		</div>
-		<br/>
-		<div class="row">
-			<div class="col-xs-6 col-md-3">
-				<a href="/sample/itemView.do" class="img-rounded"><img src="../resources/image/official/291-300x214-Air-Jordan-11-Retro-Gamma-Blue.jpg" alt="" style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">ã</h5>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="img-rounded"><img src="../resources/image/official/304-300x214-Air-Jordan-11-Retro-Playoffs-Bred-2012.jpg" alt=".." style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">ã</h5>
-			</div>
-			<div class="col-xs-6 col-md-3">
-				<a href="#" class="img-rounded"><img src="../resources/image/official/aj11-low-concord1.jpg" alt="..." style="width: 250px; height: 200px;"></a>
-				<h5 class="post-subtitle" style="text-align: center;">ã</h5>
-			</div>
-			<div class="col-xs-6 col-md-3">
-			
-			</div>
-		</div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Go to Start SneakerHeads:</h2>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="list-inline banner-social-buttons">
+                        <li>
+                            <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">FootSell</span></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Nike Mannia</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
         </div>
         <!-- /.container -->
-
-
-
-
-
+    </div>
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -212,22 +174,14 @@
                 <div class="col-lg-12">
                     <ul class="list-inline">
                         <li>
-                            <a href="#">Home</a>
+                            <a href="/stocks.do">Home</a>
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
                             <a href="#about">About</a>
                         </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#services">Services</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#contact">Contact</a>
-                        </li>
                     </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Your Company 2014. All Rights Reserved</p>
+                    <p class="copyright text-muted small">Copyright &copy; dehawn 2016. All Rights Reserved</p>
                 </div>
             </div>
         </div>

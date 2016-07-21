@@ -28,6 +28,8 @@ h6 {
 .lead {
     font-size: 18px;
     font-weight: 400;
+    text-align: left;
+    letter-spacing:1.2px
 }
 
 .intro-header {
@@ -35,8 +37,16 @@ h6 {
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(../img/intro-bg.jpg) no-repeat center center;
+    background: url(../img/head-bg2.jpg) no-repeat center center;
+/*     background: url(../images/crush/How-Do-You-Justify-Spending-600-to-a-Non-Sneakerhead-3.jpg) no-repeat center center; */
     height: 700px;
+    background-size: cover;
+}
+
+.detail-slide{
+	padding-top: 83px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 15px;
+    text-align: center;
     background-size: cover;
 }
 
